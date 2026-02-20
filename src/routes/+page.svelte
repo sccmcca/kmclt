@@ -58,35 +58,23 @@
             </p>
         </div>
 
-        <div
-            class="pie-charts"
-            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 0; margin: 0;"
-        >
-            <div
-                style="display: flex; flex-direction: column; align-items: center;"
-            >
+        <div class="pie-charts">
+            <div>
                 <img
                     src={pieNonRes}
                     alt="Pie chart of non-restaurant businesses"
-                    style="height: 400px; width: auto;"
                 />
             </div>
-            <div
-                style="display: flex; flex-direction: column; align-items: center;"
-            >
+            <div>
                 <img
                     src={pieRestaurants}
                     alt="Pie chart of restaurants"
-                    style="height: 400px; width: auto;"
                 />
             </div>
-            <div
-                style="display: flex; flex-direction: column; align-items: center;"
-            >
+            <div>
                 <img
                     src={pieRetail}
                     alt="Pie chart of retail"
-                    style="height: 400px; width: auto;"
                 />
             </div>
         </div>
@@ -107,7 +95,7 @@
 
     <div class="sankey" style="display: flex; justify-content: center;">
         <picture>
-            <source media="(max-width: 480px)" srcset={sankeyImageMobile} />
+            <source media="(max-width: 600px)" srcset={sankeyImageMobile} />
             <img
                 src={sankeyImageStandard}
                 alt="Sankey diagram showing business transitions 2007-2025"
@@ -235,5 +223,37 @@
         color: #979797;
         margin-top: 0.5rem;
         text-align: center;
+    }
+
+    .pie-charts {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 0;
+        margin: 0;
+    }
+
+    .pie-charts > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .pie-charts img {
+        height: 400px;
+        width: auto;
+        max-width: 100%;
+    }
+
+    @media (max-width: 600px) {
+        .pie-charts {
+            grid-template-columns: 1fr;
+        }
+
+        .pie-charts img {
+            height: auto;
+            width: 100%;
+            max-width: 100%;
+        }
     }
 </style>
